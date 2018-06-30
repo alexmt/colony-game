@@ -1,0 +1,50 @@
+{
+  "name": "colony-game",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@gitlab.com:alexmt/colony-game.git",
+  "author": "Alexander Matyushentsev <amatyushentsev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:api": "TS_NODE_PROJECT=./src/api/tsconfig.json nodemon --nolazy --inspect -r ts-node/register ./src/api/main.ts",
+    "start:ui": "webpack-dev-server --mode development --config ./src/ui/webpack.config.js",
+    "build": "yarn build:ui && yarn build:api",
+    "build:api": "tsc -p ./src/api/tsconfig.json",
+    "build:ui": "webpack --mode production --config ./src/ui/webpack.config.js",
+    "lint": "yarn lint:ui && yarn lint:api",
+    "lint:ui": "tslint -p ./src/ui",
+    "lint:api": "tslint -p ./src/api"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/pixi.js": "^4.8.0",
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "@types/yargs": "^11.0.0",
+    "awesome-typescript-loader": "^5.2.0",
+    "copy-webpack-plugin": "^4.5.2",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.0",
+    "nodemon": "^1.17.5",
+    "pixi.js": "^4.8.1",
+    "raw-loader": "^0.5.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "sass-loader": "^7.0.3",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
+    "ts-lint": "^4.5.1",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "pixi-projection": "^0.2.1",
+    "webpack-dev-server": "^3.1.4",
+    "yargs": "^12.0.1"
+  }
+}
